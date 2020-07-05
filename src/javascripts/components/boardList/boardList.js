@@ -6,7 +6,8 @@ const showBoards = () => {
   boardData.getBoards()
     .then((boards) => {
       let domString = `
-      <div class="card">
+      <h2 class="text-center">Boards</h2>
+      <div class="d-flex flex-wrap">
       `;
 
       boards.forEach((board) => {

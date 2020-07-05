@@ -5,6 +5,7 @@ import auth from './components/auth/auth';
 import myNavBar from './components/myNavBar/myNavBar';
 import authData from './helpers/data/authData';
 
+import 'bootstrap';
 import '../styles/main.scss';
 
 const init = () => {

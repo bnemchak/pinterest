@@ -1,31 +1,26 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-// import mushroomList from '../../components/mushroomList/mushroomList';
-// import mycologistList from '../../components/mycologistList/mycologistList';
+import boardList from '../../components/boardList/boardList';
 
 const authDiv = $('#auth');
 const boardDiv = $('#board');
-// const hutDiv = $('#hut');
+const homeDiv = $('#homePage');
 const logoutButton = $('#navbar-logout-button');
-// const singleMycoDiv = $('#single-myco');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       authDiv.addClass('hide');
+      homeDiv.addClass('hide');
       boardDiv.removeClass('hide');
-      // hutDiv.removeClass('hide');
-      // singleMycoDiv.removeClass('hide');
       logoutButton.removeClass('hide');
 
-      // mushroomList.buildForest();
-      // mycologistList.buildHuts();
+      boardList.showBoards();
     } else {
       authDiv.removeClass('hide');
+      homeDiv.removeClass('hide');
       boardDiv.addClass('hide');
-      // hutDiv.addClass('hide');
-      // singleMycoDiv.addClass('hide');
       logoutButton.addClass('hide');
     }
   });

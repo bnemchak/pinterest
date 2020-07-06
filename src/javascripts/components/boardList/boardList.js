@@ -5,6 +5,7 @@ import utils from '../../helpers/utils';
 const showBoards = () => {
   boardData.getBoards()
     .then((boards) => {
+      console.warn('here please');
       let domString = `
       <h2 class="text-center">Boards</h2>
       <div class="d-flex flex-wrap">

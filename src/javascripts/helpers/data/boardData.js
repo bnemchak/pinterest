@@ -8,15 +8,16 @@ const getBoards = () => new Promise((resolve, reject) => {
     .then((response) => {
       const boardObjects = response.data;
       const boards = [];
-      if (boardObjects) {
-        Object.keys(boardObjects).forEach((boardId) => {
-          boardObjects[boardId].id = boardId;
-          boards.push(boardObjects[boardId]);
-        });
-      }
+      Object.keys(boardObjects).forEach((boardId) => {
+        boardObjects[boardId].id = boardId;
+        boards.push(boardObjects[boardId]);
+      });
+
       resolve(boards);
     })
     .catch((err) => reject(err));
 });
 
-export default { getBoards };
+const getPinsByBoardId = (boardId) => axios.get(`${baseUrl}/boards/$boardId.json`);
+
+export default { getBoards, getPinsByBoardId };

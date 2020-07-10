@@ -1,5 +1,6 @@
 import boardData from '../../helpers/data/boardData';
 import boardComponent from '../board/board';
+import pinList from '../pinList/pinList';
 import utils from '../../helpers/utils';
 
 const showBoards = () => {
@@ -21,4 +22,8 @@ const showBoards = () => {
     .catch((err) => console.error('it broke', err));
 };
 
-export default { showBoards };
+const boardEvents = () => {
+  $('body').on('click', '.boardCard', pinList.showPins);
+};
+
+export default { showBoards, boardEvents };

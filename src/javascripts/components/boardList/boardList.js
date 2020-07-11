@@ -22,8 +22,4 @@ const showBoards = () => {
     .catch((err) => console.error('it broke', err));
 };
 
-const boardEvents = () => {
-  $('body').on('click', '.boardCard', pinList.showPins);
-};
-
-export default { showBoards, boardEvents };
+export default { showBoards };

@@ -1,6 +1,6 @@
 import boardData from '../../helpers/data/boardData';
 import boardComponent from '../board/board';
-import pinList from '../pinList/pinList';
+import boardPin from '../boardPin/boardPin';
 import utils from '../../helpers/utils';
 
 const showBoards = () => {
@@ -18,6 +18,8 @@ const showBoards = () => {
       domString += '</div>';
 
       utils.printToDom('#board', domString);
+
+      $('body').on('click', '.board-card', boardPin.buildBoardPin);
     })
     .catch((err) => console.error('it broke', err));
 };

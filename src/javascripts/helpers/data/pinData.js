@@ -17,4 +17,19 @@ const getPinsByBoardId = (boardId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getPinsByBoardId };
+const getBoardPinByBoardId = (boardId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+    .then((response) => {
+      const boardPinObj = response.data;
+      const boardPin = [];
+      Object.keys(boardPinObj).forEach((boardPinId) => {
+        boardPinObj[boardPinId].id = boardPinId;
+        boardPin.push(boardPinObj[boardPinId]);
+      });
+
+      resolve(boardPin);
+    })
+    .catch((err) => reject(err));
+});
+
+export default { getPinsByBoardId, getBoardPinByBoardId };

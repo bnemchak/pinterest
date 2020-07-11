@@ -8,7 +8,7 @@ const buildBoardPin = (e) => {
     .then((response) => {
       const board = response.data;
 
-      boardPinData.getBoardPinsbyBoardId(boardId)
+      boardPinData.getBoardPinbByBoardId(boardId)
         .then((res) => console.warn('got by board Id', res));
 
       const domString = `
